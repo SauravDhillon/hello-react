@@ -15,17 +15,22 @@ const Button = (props) => {
 const Application = () => {
 
   // your code here
-
+  const [name, setName] = useState("Saurav");
   const reset = () => {
     console.log("reset");
     // your code here
+    setName("");
   };
 
   return (
     <main>
       {/* your code here -- this entire line including the curly braces can be removed */}
+      <input 
+        value={name}
+        placeholder='TYPE YOUR NAME'
+        onChange={(event) => setName(event.target.value)}></input>
       <Button onClick={reset}>RESET</Button>
-      <h1>Hello React</h1>
+      {name ? <h1>Hello {name}</h1> : ""}
     </main>
   );
 };
